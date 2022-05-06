@@ -1,7 +1,6 @@
 #include <windows.h>
 #include <stdio.h>
 #include "url_parser.h"
-//#include "str_split.c"
 
 bool isFile(LPSTR strFileName) {
 	DWORD ret = GetFileAttributes(strFileName);
