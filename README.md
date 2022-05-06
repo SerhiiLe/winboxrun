@@ -6,7 +6,8 @@ winbox.exe host_ip user password , это позволяет сразу зало
 
 ## Установка
 
-Просто скопировать куда угодно и зарегистрировать в системе протокол winbox:// . В архиве лежит файл winboxrun.reg,
+Просто скопировать куда угодно и зарегистрировать в системе протокол winbox:// .
+[В архиве](https://github.com/SerhiiLe/winboxrun/releases) лежит файл winboxrun.reg,
 регистрирующий вызов в папку c:\winbox\ . Там же должен лежать winbox.exe . Если надо в другую папке, то надо
 подправить этот файл и импортировать в реестр.
 
@@ -23,9 +24,9 @@ winbox.exe host_ip user password , this allows you to immediately log in to mikr
 
 ## Installation
 
-Just copy it anywhere and register the winbox:// protocol in the system. The archive contains the winboxrun.reg file,
-logging call to c:\winbox\ folder. Winbox.exe should also be there. If you need in another folder, then you need
-edit this file and import it into the registry.
+Just copy it anywhere and register the winbox:// protocol in the system. [The archive](https://github.com/SerhiiLe/winboxrun/releases)
+contains the winboxrun.reg file, logging call to c:\winbox\ folder. Winbox.exe should also be there.
+If you need in another folder, then you need edit this file and import it into the registry.
 
 ## Compiling
 
