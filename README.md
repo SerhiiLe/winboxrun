@@ -11,6 +11,8 @@ winbox.exe host_ip user password , это позволяет сразу зало
 регистрирующий вызов в папку c:\winbox\ . Там же должен лежать winbox.exe . Если надо в другую папке, то надо
 подправить этот файл и импортировать в реестр.
 
+Файлы для регистрации URL протокола в linux так-же лежат[в архиве](https://github.com/SerhiiLe/winboxrun/releases). 
+
 ## Сборка
 
 Собирал [Dev-C++ / GCC](https://sourceforge.net/projects/orwelldevcpp/). Можно собрать любым компилятором,
@@ -27,6 +29,8 @@ winbox.exe host_ip user password , this allows you to immediately log in to mikr
 Just copy it anywhere and register the winbox:// protocol in the system. [The archive](https://github.com/SerhiiLe/winboxrun/releases)
 contains the winboxrun.reg file, logging call to c:\winbox\ folder. Winbox.exe should also be there.
 If you need in another folder, then you need edit this file and import it into the registry.
+
+The files for registering the URL protocol in Linux are also located in [the archive](https://github.com/SerhiiLe/winboxrun/releases)
 
 ## Compiling
 
