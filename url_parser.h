@@ -10,6 +10,11 @@
 #define _URL_PARSER_H
 
 /*
+ * ------------ NOT ORIGINAL --------------
+ * adapted to the project winboxrun
+ */
+
+/*
 * URL storage
 */
 struct parsed_url {
@@ -17,8 +22,6 @@ struct parsed_url {
 	char *host;                 /* mandatory */
 	char *port;                 /* optional */
 	char *path;                 /* optional */
-	char *query;                /* optional */
-	char *fragment;             /* optional */
 	char *username;             /* optional */
 	char *password;             /* optional */
 };

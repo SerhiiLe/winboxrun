@@ -1,18 +1,18 @@
-# Project: winboxrun-win
+# Project: winboxrun
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 RES      = winboxrun-win_private.res
-OBJ      = main.o url_parser.o $(RES)
-LINKOBJ  = main.o url_parser.o $(RES)
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -m32 -s
+OBJ      = winboxrun.o url_parser.o $(RES)
+LINKOBJ  = winboxrun.o url_parser.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -mwindows -m32 -mwindows -s
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = winboxrun-win.exe
-CXXFLAGS = $(CXXINCS) -m32
-CFLAGS   = $(INCS) -m32
+BIN      = winboxrun.exe
+CXXFLAGS = $(CXXINCS) -Os -m32 -mwindows
+CFLAGS   = $(INCS) -Os -m32 -mwindows
 RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -25,8 +25,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+winboxrun.o: winboxrun.c
+	$(CPP) -c winboxrun.c -o winboxrun.o $(CXXFLAGS)
 
 url_parser.o: url_parser.c
 	$(CPP) -c url_parser.c -o url_parser.o $(CXXFLAGS)

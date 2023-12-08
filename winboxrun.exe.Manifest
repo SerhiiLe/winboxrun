@@ -3,11 +3,11 @@
   xmlns="urn:schemas-microsoft-com:asm.v1"
   manifestVersion="1.0">
 <assemblyIdentity
-    name="DevCpp.Apps.winboxrun-win"
+    name="DevCpp.Apps.winboxrun"
     processorArchitecture="*"
     version="1.0.0.0"
     type="win32"/>
-<description>winboxrun-win</description>
+<description>winboxrun</description>
 <dependency>
     <dependentAssembly>
         <assemblyIdentity

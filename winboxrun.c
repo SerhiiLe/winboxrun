@@ -10,7 +10,7 @@ bool isFile(LPSTR strFileName) {
 /* The 'main' function of Win32 GUI programs: this is where execution starts */
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	
-	const char version[] = "Winbox runner for CCS billing. Version 1.3";
+	const char version[] = "Winbox runner for CCS billing. Version 1.4";
 	const char url_help[] = "\nwinbox://username:password@host_ip\nor\nwinbox://host_ip/username/pasword";
 	const int MAX_STR = _MAX_PATH + 64;
 	int i;
@@ -90,6 +90,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	free(path);
 	free(s);
+	parsed_url_free(purl);
   	return 0;
 }
 

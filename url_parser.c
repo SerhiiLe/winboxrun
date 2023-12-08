@@ -5,6 +5,12 @@
  *      Hirochika Asai
  */
 
+/*
+ * ------------ NOT ORIGINAL --------------
+ * adapted to the project winboxrun
+ */
+
+
 #include "url_parser.h"
 
 //#include <stdio.h>
@@ -49,8 +55,6 @@ struct parsed_url * parse_url(const char *url)
     purl->host = NULL;
     purl->port = NULL;
     purl->path = NULL;
-    purl->query = NULL;
-    purl->fragment = NULL;
     purl->username = NULL;
     purl->password = NULL;
 
@@ -225,60 +229,38 @@ struct parsed_url * parse_url(const char *url)
     }
     curstr++;
 
-    /* Parse path */
-    tmpstr = curstr;
-    while ( '\0' != *tmpstr && '#' != *tmpstr  && '?' != *tmpstr ) {
-        tmpstr++;
+	/* decode the path without parametrs and fragment */
+	
+	len = strlen(curstr);
+	purl->path = (char *)malloc(sizeof(char) * (len + 1));
+	char *path = purl->path;
+	char a, b;
+	while ( *curstr ) {
+    	if ( (*curstr == '%') &&
+				((a = curstr[1]) && (b = curstr[2])) &&
+				(isxdigit(a) && isxdigit(b)) ) {
+			if (a >= 'a')
+				a -= 'a'-'A';
+			if (a >= 'A')
+				a -= ('A' - 10);
+			else
+				a -= '0';
+			if (b >= 'a')
+				b -= 'a'-'A';
+			if (b >= 'A')
+				b -= ('A' - 10);
+			else
+				b -= '0';
+			*path++ = 16*a+b;
+			curstr += 3;
+        } else if ( *curstr == '+' ) {
+			*path++ = ' ';
+			curstr++;
+		} else {
+			*path++ = *curstr++;
+		}
     }
-    len = tmpstr - curstr;
-    purl->path = (char *)malloc(sizeof(char) * (len + 1));
-    if ( NULL == purl->path ) {
-        parsed_url_free(purl);
-        return NULL;
-    }
-    (void)strncpy(purl->path, curstr, len);
-    purl->path[len] = '\0';
-    curstr = tmpstr;
-
-    /* Is query specified? */
-    if ( '?' == *curstr ) {
-        /* Skip '?' */
-        curstr++;
-        /* Read query */
-        tmpstr = curstr;
-        while ( '\0' != *tmpstr && '#' != *tmpstr ) {
-            tmpstr++;
-        }
-        len = tmpstr - curstr;
-        purl->query = (char *)malloc(sizeof(char) * (len + 1));
-        if ( NULL == purl->query ) {
-            parsed_url_free(purl);
-            return NULL;
-        }
-        (void)strncpy(purl->query, curstr, len);
-        purl->query[len] = '\0';
-        curstr = tmpstr;
-    }
-
-    /* Is fragment specified? */
-    if ( '#' == *curstr ) {
-        /* Skip '#' */
-        curstr++;
-        /* Read fragment */
-        tmpstr = curstr;
-        while ( '\0' != *tmpstr ) {
-            tmpstr++;
-        }
-        len = tmpstr - curstr;
-        purl->fragment = (char *)malloc(sizeof(char) * (len + 1));
-        if ( NULL == purl->fragment ) {
-            parsed_url_free(purl);
-            return NULL;
-        }
-        (void)strncpy(purl->fragment, curstr, len);
-        purl->fragment[len] = '\0';
-        curstr = tmpstr;
-    }
+	*path++ = '\0';
 
     return purl;
 }
@@ -300,12 +282,6 @@ void parsed_url_free(struct parsed_url *purl)
         }
         if ( NULL != purl->path ) {
             free(purl->path);
-        }
-        if ( NULL != purl->query ) {
-            free(purl->query);
-        }
-        if ( NULL != purl->fragment ) {
-            free(purl->fragment);
         }
         if ( NULL != purl->username ) {
             free(purl->username);

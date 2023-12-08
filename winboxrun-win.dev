@@ -1,6 +1,6 @@
 [Project]
 FileName=winboxrun-win.dev
-Name=winboxrun-win
+Name=winboxrun
 Type=0
 Ver=2
 ObjFiles=
@@ -18,8 +18,8 @@ ExeOutput=
 ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
-OverrideOutput=0
-OverrideOutputName=winboxrun-win.exe
+OverrideOutput=1
+OverrideOutputName=winboxrun.exe
 HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
@@ -28,7 +28,7 @@ Folders=
 IncludeVersionInfo=1
 SupportXPThemes=1
 CompilerSet=3
-CompilerSettings=0000000100000000000001000
+CompilerSettings=000000d100000000000011000
 UnitCount=3
 
 [VersionInfo]
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=main.cpp
+FileName=winboxrun.c
 CompileCpp=1
 Folder=
 Compile=1

@@ -11,7 +11,7 @@ A ICON "winboxrun-win.ico"
 // THIS WILL MAKE THE PROGRAM USE THE COMMON CONTROLS
 // LIBRARY VERSION 6.0 (IF IT IS AVAILABLE)
 //
-1 24 "winboxrun-win.exe.Manifest"
+1 24 "winboxrun.exe.Manifest"
 
 //
 // TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
